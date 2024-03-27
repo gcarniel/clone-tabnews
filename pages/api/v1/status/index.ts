@@ -1,5 +1,6 @@
+import database from "../../../../infra/database"
 
-import database from "infra/database.js"
+
 
 export default async function handler(req, res) {
   const resp = await database.query("SELECT 1 as num")
