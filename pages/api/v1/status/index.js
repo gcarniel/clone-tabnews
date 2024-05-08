@@ -1,4 +1,4 @@
-import database from "../../../../infra/database"
+import database from "infra/database.js"
 
 export default async function handler(req, res) {
   const databaseVersionResult = await database.query("SHOW server_version;")
@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   const databaseOpenedConnectionsValue = databaseOpenedConnectionsResult.rows[0].count
 
   const updatedAt = new Date().toISOString()
-  res.status(200).json({ updated_at: updatedAt ,
+  res.status(200).json({ updated_at: updatedAt,
   dependencies: {
     database: {
       version: databaseVersionValue,
